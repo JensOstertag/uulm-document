@@ -31,7 +31,6 @@
 	\def\@documentDate{#1}
 }
 
-
 \title{\@documentTitle}
 \author{\@documentAuthor}
 \date{\@documentDate}
@@ -143,9 +142,10 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   PAGE NUMBERING & STYLE   %
+%   PAGE STYLE & NUMBERING   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{scrlayer-scrpage}
+\newpairofpagestyles{default-header}{
 \clearpairofpagestyles
 \renewcommand*{\headfont}{\normalfont}
 \chead{
@@ -154,6 +154,9 @@
 \node (pagenumber) [fill=facultyColor, minimum width=.75in, fit={(fullwidth.south) (fullwidth.north)}, inner sep=0, outer sep=0, below left, label={[white]center:\thepage}] at (current page.north east) {};
 \end{tikzpicture}
 }
+}
+
+\AtBeginDocument{\pagestyle{default-header}}
 
 
 %%%%%%%%%%%%%
