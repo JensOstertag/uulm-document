@@ -1,5 +1,10 @@
 \documentclass[a4paper]{uulm-document}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   German Date Format   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[ngerman]{babel}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Document Information   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -16,4 +21,88 @@
 
 \begin{document}
 \maketitle
+
+\tableofcontents
+
+\section{Abschnitte}
+Das ist eine \textit{section}. Sie wird im Inhaltsverzeichnis aufgeführt. In einer pdf-Datei ist sie so verlinkt, dass man mit einem Klick auf die Zeile direkt zum entsprechenden Abschnitt gelangt.
+
+Auch \textit{subsection}s werden im Inhaltsverzeichnis aufgelistet und entsprechend verlinkt.
+
+\section{Formeln}
+Mit \LaTeX\, können schöne Formeln einfach dargestellt werden:
+\begin{equation}
+p_{ph} = \frac{h}{\lambda} = \frac{h*f}{c} = m * c
+\end{equation}
+Mit dieser Formel kann man zum Beispiel den Impuls eines Photons berechnen!
+
+\section{Graphen}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+	minor tick num=1,
+	axis lines=middle,
+	xmin=-6.5,
+	xmax=6.5
+]
+\addplot[domain=-2*pi:2*pi, color=facultyColor, samples=30, smooth]{sin(deg(x))};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+Auch Graphen lassen sich mit \LaTeX\, schön abbilden. Dafür wird das Paket \textit{pgfplots} genutzt, wie oben mit der Sinus-Funktion gezeigt. Wird die Funktion mit der Farbe \textit{facultyColor} gezeichnet, erscheint sie automatisch mit der Farbe der ausgewählten Fakultät.
+
+\textit{pgfplots} erlaubt es sogar, dreidimensionale Graphen zu zeichnen, hier am Beispiel $sin(x)-cos(y)$ veranschaulicht:
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+	minor tick num=1,
+	view={20}{60}
+]
+\addplot3[surf, samples=45]{sin(deg(x))-cos(deg(y))};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\section{Programmcodes}
+Mit dieser \LaTeX -DocumentClass können ebenfalls Programmcodes mit Code Highlighting dargestellt werden:
+\begin{lstlisting}[language=Java]
+public class Main {
+    public static void main(String args[]) {
+        int[] array = new int[10];
+        for(int i = 0; i < array.length; i++)
+            array[i] = 1 + (int)(Math.random() * 10);
+        
+        int[] sorted = sort(array);
+        
+        String initialOutput = "Starting Array: ";
+        String sortedOutput = "Sorted Array: ";
+      
+        for(int i = 0; i < sorted.length; i++) {
+            initialOutput += array[i] + " ";
+            sortedOutput += sorted[i] + " ";
+        }
+      
+        System.out.println(initialOutput + "\n" + sortedOutput);
+    }
+    
+    public static int[] sort(int[] array) {
+        int[] sorted = new int[array.length];
+        
+        for(int i = 0; i < sorted.length; i++)
+            sorted[i] = array[i];
+            
+        for(int i = 0; i < sorted.length; i++) {
+            for(int j = i; j < sorted.length; j++) {
+                if(sorted[i] > sorted[j]) {
+                    int cache = sorted[j];
+                    sorted[j] = sorted[i];
+                    sorted[i] = cache;
+                }
+            }
+        }
+        
+        return sorted;
+    } 
+}
+\end{lstlisting}
 \end{document}
