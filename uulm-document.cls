@@ -133,6 +133,53 @@
 \newcommand{\qed}{\hfill\ensuremath{\square}}
 
 
+%%%%%%%%%%%%%%%%
+%   Listings   %
+%%%%%%%%%%%%%%%%
+\RequirePackage{listings}
+
+\definecolor{codeBackgroundColor}{rgb}{1, 1, 1}
+\definecolor{codeCommentColor}{rgb}{.5, .5, .5}
+\definecolor{codeKeywordColor}{rgb}{0, .7, 0}
+\definecolor{codeNumberColor}{rgb}{0, 0, 0}
+\definecolor{codeStringColor}{rgb}{1, .3, 0}
+
+\lstdefinestyle{codestyle}{
+	backgroundcolor=\color{codeBackgroundColor},
+	commentstyle=\color{codeCommentColor},
+	keywordstyle=\color{codeKeywordColor},
+	numberstyle=\color{codeNumberColor},
+	stringstyle=\color{codeStringColor},
+	basicstyle=\ttfamily\footnotesize,
+	basicstyle=\ttfamily\color{black},
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=4
+}
+
+\lstset{style=codestyle}
+
+
+%%%%%%%%%%%%%%%%
+%   CsQuotes   %
+%%%%%%%%%%%%%%%%
+\RequirePackage{csquotes}
+
+
+%%%%%%%%%%%%%
+%   INDEX   %
+%%%%%%%%%%%%%
+\RequirePackage{imakeidx}
+\makeindex
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   GERMAN TABLEOFCONTENTS   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -169,5 +216,5 @@
 \node (subtitle) [rectangle, fill=accentColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.25cm, outer sep=0, align=right, below=0mm of title] {{\Large\@documentSubtitle}\\\@documentDate\hspace*{\fill}\@documentAuthor};
 \end{tikzpicture}
 \thispagestyle{empty}
-\vspace*{2in}\\
+\vspace*{1.5in}\\
 }
