@@ -59,13 +59,19 @@
 
 \definecolor{facultyColor}{HTML}{\@facultyColorCode}
 \definecolor{accentColor}{HTML}{\@accentColorCode}
+\definecolor{medColor}{HTML}{26537C}
+\definecolor{natColor}{HTML}{E06C07}
+\definecolor{infIngPsyColor}{HTML}{A32638}
+\definecolor{mathColor}{HTML}{55AA1B}
 
 \newcommand{\setFacultyColor}[1]{
 	\def\@facultyColorCode{#1}
+	\definecolor{facultyColor}{HTML}{\@facultyColorCode}
 }
 
 \newcommand{\setAccentColor}[1]{
 	\def\@accentColorCode{#1}
+	\definecolor{accentColor}{HTML}{\@accentColorCode}
 }
 
 \newcommand{\faculty}[1]{
@@ -84,7 +90,6 @@
 			}
 		}
 	}
-	\definecolor{facultyColor}{HTML}{\@facultyColorCode}
 }
 
 
