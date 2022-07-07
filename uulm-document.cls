@@ -214,6 +214,22 @@
 %%%%%%%%%%%%%
 %   TITLE   %
 %%%%%%%%%%%%%
+\def\@headerSpacing{1.5in}
+\def\@titlePageStyle{default}
+
+\newcommand{\headerspacing}[1]{
+	\def\@headerSpacing{#1}
+}
+
+\newcommand{\titlepagestyle}[1]{
+	\def\@titlePageStyle{#1}
+	
+	\ifthenelse{\equal{\@titlePageStyle}{clear}}{
+		{\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{default-header}}}}
+		{}
+	}
+}
+
 \renewcommand{\maketitle}{
 \begin{tikzpicture}[remember picture, overlay]
 \node (logo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=right] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[width=7.3cm]{uulmlogo.png}};
@@ -221,5 +237,9 @@
 \node (subtitle) [rectangle, fill=accentColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.25cm, outer sep=0, align=right, below=0mm of title] {{\Large\@documentSubtitle}\\\@documentDate\hspace*{\fill}\@documentAuthor};
 \end{tikzpicture}
 \thispagestyle{empty}
-\vspace*{1.5in}\\
+\vspace*{\@headerSpacing}\\
+\ifthenelse{\equal{\@titlePageStyle}{clear}}{
+	{\clearpage}
+	{}
+}
 }
