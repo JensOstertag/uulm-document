@@ -8,6 +8,12 @@
 \LoadClassWithOptions{article}
 
 
+%%%%%%%%%%%%%%%%
+%   COMMANDS   %
+%%%%%%%%%%%%%%%%
+\RequirePackage{ifthen}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %   DOCUMENT METADATA   %
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -31,6 +37,8 @@
 	\def\@documentDate{#1}
 }
 
+\newif\ifprintmode
+
 \title{\@documentTitle}
 \author{\@documentAuthor}
 \date{\@documentDate}
@@ -52,7 +60,6 @@
 %   DOCUMENT COLORS   %
 %%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{xcolor}
-\RequirePackage{ifthen}
 
 \def\@facultyColorCode{CBC6BA}
 \def\@accentColorCode{CBC6BA}
@@ -197,18 +204,22 @@
 %   PAGE STYLE & NUMBERING   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{scrlayer-scrpage}
-\newpairofpagestyles{default-header}{
-\clearpairofpagestyles
-\renewcommand*{\headfont}{\normalfont}
-\chead{
-\begin{tikzpicture}[remember picture, overlay]
-\node (fullwidth) [rectangle, fill=accentColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.15in, outer sep=0, below, align=right] at (current page.north) {\begin{tabular}{l}\@documentTitle\end{tabular} \hspace*{\fill} \begin{tabular}{r}\@documentSubtitle\end{tabular}};
-\node (pagenumber) [fill=facultyColor, minimum width=.75in, fit={(fullwidth.south) (fullwidth.north)}, inner sep=0, outer sep=0, below left, label={[white]center:\thepage}] at (current page.north east) {};
-\end{tikzpicture}
-}
+\newpairofpagestyles{default-pagestyle}{
+	\clearpairofpagestyles
+	\renewcommand*{\headfont}{\normalfont}
+	\ifprintmode
+		\cfoot{\thepage}
+	\else
+		\chead{
+			\begin{tikzpicture}[remember picture, overlay]
+				\node (fullwidth) [rectangle, fill=accentColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.15in, outer sep=0, below, align=right] at (current page.north) {\begin{tabular}{l}\@documentTitle\end{tabular} \hspace*{\fill} \begin{tabular}{r}\@documentSubtitle\end{tabular}};
+				\node (pagenumber) [fill=facultyColor, minimum width=.75in, fit={(fullwidth.south) (fullwidth.north)}, inner sep=0, outer sep=0, below left, label={[white]center:\thepage}] at (current page.north east) {};
+			\end{tikzpicture}
+		}
+	\fi
 }
 
-\AtBeginDocument{\pagestyle{default-header}}
+\AtBeginDocument{\pagestyle{default-pagestyle}}
 
 
 %%%%%%%%%%%%%
@@ -225,21 +236,21 @@
 	\def\@titlePageStyle{#1}
 	
 	\ifthenelse{\equal{\@titlePageStyle}{clear}}{
-		{\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{default-header}}}}
+		{\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{default-pagestyle}}}}
 		{}
 	}
 }
 
 \renewcommand{\maketitle}{
-\begin{tikzpicture}[remember picture, overlay]
-\node (logo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=right] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[width=7.3cm]{uulmlogo.png}};
-\node (title) [rectangle, fill=facultyColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.5cm, outer sep=0, align=right, below=0mm of logo] {\textcolor{white}{\LARGE\@documentTitle}};
-\node (subtitle) [rectangle, fill=accentColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.25cm, outer sep=0, align=right, below=0mm of title] {{\Large\@documentSubtitle}\\\@documentDate\hspace*{\fill}\@documentAuthor};
-\end{tikzpicture}
-\thispagestyle{empty}
-\vspace*{\@headerSpacing}\\
-\ifthenelse{\equal{\@titlePageStyle}{clear}}{
-	{\clearpage}
-	{}
-}
+	\begin{tikzpicture}[remember picture, overlay]
+		\node (logo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=right] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[width=7.3cm]{uulmlogo.png}};
+		\node (title) [rectangle, fill=facultyColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.5cm, outer sep=0, align=right, below=0mm of logo] {\textcolor{white}{\LARGE\@documentTitle}};
+		\node (subtitle) [rectangle, fill=accentColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.25cm, outer sep=0, align=right, below=0mm of title] {{\Large\@documentSubtitle}\\\@documentDate\hspace*{\fill}\@documentAuthor};
+	\end{tikzpicture}
+	\thispagestyle{empty}
+	\vspace*{\@headerSpacing}\\
+	\ifthenelse{\equal{\@titlePageStyle}{clear}}{
+		{\clearpage}
+		{}
+	}
 }
