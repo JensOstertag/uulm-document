@@ -1,0 +1,111 @@
+\documentclass[a4paper]{../uulm-document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   German Date Format   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[ngerman]{babel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Document Information   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentTitle{uulm-document}
+\documentSubtitle{Documentation}
+\documentAuthor{Jens Ostertag}
+\documentDate{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            Faculty                            %
+%   Available Faculties: "med", "nat", "infIngPsy" and "math"   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\faculty{infIngPsy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             Title Page Style             %
+%   Available Styles: "default", "clear"   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titlepagestyle{clear}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Print Mode (uncomment applicable)   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\printmodetrue
+%\printmodefalse
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+This is the Documentation to the \LaTeX -Documentclass \textit{uulm-document}, an inofficial \LaTeX -Template for Documents at Ulm University. It contains Details about used Packages, Commands and Colors.
+
+\section{Used Packages}
+This Package auto-includes the Packages listed below:
+\begin{itemize}
+\item \textbf{ifthen} - used for Command Handling within the Documentclass
+\item \textbf{geometry} - used to set the Margin of the Document to 1in
+\item \textbf{inputenc} - used for UTF-8 Encoding
+\item \textbf{xcolor} - used to define Colors
+\item \textbf{hyperref} - used to use Hyperlinks within the Table of Contents
+\item \textbf{tocloft} - used to draw dotted Lines within the Table of Contents
+\item \textbf{graphicx} - used to place the UUlm Logo (you can use it for your own Images too)
+\item \textbf{scrlayer-scrpage} - used to place the Headers
+\item \textbf{tikz} - used to draw the Title Page and the Headers (you can use it for your own Drawings, too)
+There are also these TikZ-Packages included:
+\begin{itemize}
+\item calc
+\item positioning
+\item fit
+\end{itemize}
+They are all used to style the Title Page and the Headers
+\item \textbf{pgfplots} - used to draw Graphs in tikzpictures
+\item \textbf{amsmath}
+\item \textbf{amssymb}
+\item \textbf{mathtools}
+\item \textbf{listings} - used to create Source Codes
+\item \textbf{csquotes} - used for enquoting
+\item \textbf{imakeidx} - used to create an Index at the end of the Document
+\end{itemize}
+
+\section{Commands}
+There are some custom Commands included in this Documentclass:
+\begin{itemize}
+\item \textbf{documentTitle} - sets the Title of the Document shown on the Title Page
+\item \textbf{documentSubtitle} - sets the Subtitle of the Document shown on the Title Page
+\item \textbf{documentAuthor} - sets the Author of the Document shown on the Title Page
+\item \textbf{documentDate} - sets the Date of the Document shown on the Title Page
+\item \textbf{faculty} - sets the Faculty and the corresponding Faculty Color
+\item \textbf{setFacultyColor} - changes the Faculty Color to any given Color (Hex Format)
+\item \textbf{setAccentColor} - changes the Accent Color to any given Color (Hex Format)
+\item \textbf{titlepagestyle} - sets the Title Page Type
+\item \textbf{printmodetrue} - enables Print Mode
+\item \textbf{printmodefalse} - disables Print Mode
+\end{itemize}
+
+\section{Colors}
+There are a few Colors included to this Documentclass, some of them are constant, and some of them are changing, depending on your Document Settings. 
+The static Colors are:
+\begin{itemize}
+\item \textbf{medColor} - \#26547C
+\item \textbf{natColor} - \#DF6D07
+\item \textbf{infIngPsyColor} - \#A32638
+\item \textbf{mathColor} - \#56AA1C
+\item \textbf{defaultColor} - \#7D9AAA
+\item \textbf{name} - \#FFFFFF
+\item \textbf{name} - \#7F7F7F
+\item \textbf{name} - \#00B200
+\item \textbf{name} - \#000000
+\item \textbf{name} - \#FF4C00
+\end{itemize}
+
+The dynamically Changing Colors are
+\begin{itemize}
+\item \textbf{facultyColor} - Depending on your selected Faculty and Overrides on this Color (setFacultyColor), Default \#7D9AAA
+\item \textbf{accentColor} - Depending on Overrides on this Color (setAccentColor), Default \#CBC6BA
+\end{itemize}
+
+\section{Features}
+
+\subsection{Print Mode}
+
+
+\end{document}
