@@ -61,7 +61,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{xcolor}
 
-\def\@facultyColorCode{CBC6BA}
+\def\@facultyColorCode{7D9AAA}
 \def\@accentColorCode{CBC6BA}
 
 \definecolor{facultyColor}{HTML}{\@facultyColorCode}
@@ -83,17 +83,17 @@
 
 \newcommand{\faculty}[1]{
 	\ifthenelse{\equal{#1}{med}}
-	{\setFacultyColor{26537C}}
+	{\setFacultyColor{26547C}}
 	{
 		\ifthenelse{\equal{#1}{nat}}
-		{\setFacultyColor{E06C07}}
+		{\setFacultyColor{DF6D07}}
 		{
 			\ifthenelse{\equal{#1}{infIngPsy}}
 			{\setFacultyColor{A32638}}
 			{
 				\ifthenelse{\equal{#1}{math}}
-				{\setFacultyColor{55AA1B}}
-				{\setFacultyColor{CBC6BA}}
+				{\setFacultyColor{56AA1C}}
+				{\setFacultyColor{7D9AAA}}
 			}
 		}
 	}
