@@ -38,35 +38,41 @@
 \section{Introduction}
 This is the Documentation to the \LaTeX -Documentclass \textit{uulm-document}, an inofficial \LaTeX -Template for Documents at Ulm University. It contains Details about used Packages, Commands and Colors.
 
-\section{Used Packages}
-This Package auto-includes the Packages listed below:
+For Updates to this Class, have a Look at the \href{https://github.com/JensOstertag/uulm-document}{GitHub Page}.
+
+\subsection{Used Packages}
+This Documentclass needs to import a few Packages that are required to compile the Document:
 \begin{itemize}
 \item \textbf{ifthen} - used for Command Handling within the Documentclass
 \item \textbf{geometry} - used to set the Margin of the Document to 1in
 \item \textbf{inputenc} - used for UTF-8 Encoding
 \item \textbf{xcolor} - used to define Colors
-\item \textbf{hyperref} - used to use Hyperlinks within the Table of Contents
+\item \textbf{hyperref} - used to create Hyperlinks within the Table of Contents (you can use it for your own Hyperlinks too)
 \item \textbf{tocloft} - used to draw dotted Lines within the Table of Contents
 \item \textbf{graphicx} - used to place the UUlm Logo (you can use it for your own Images too)
 \item \textbf{scrlayer-scrpage} - used to place the Headers
 \item \textbf{tikz} - used to draw the Title Page and the Headers (you can use it for your own Drawings, too)
+
 There are also these TikZ-Packages included:
 \begin{itemize}
 \item calc
 \item positioning
 \item fit
 \end{itemize}
-They are all used to style the Title Page and the Headers
+They are all used to style the Title Page and the Headers.
+\item \textbf{mathtools} - used to create the \textit{qed} Command
+\end{itemize}
+Additionally, the following Packages are included and set up to allow a better overview in your Main Document:
+\begin{itemize}
 \item \textbf{pgfplots} - used to draw Graphs in tikzpictures
-\item \textbf{amsmath}
-\item \textbf{amssymb}
-\item \textbf{mathtools}
+\item \textbf{amsmath} - used for better Equations
+\item \textbf{amssymb} - provide an extended Collection of mathematical Symbols
 \item \textbf{listings} - used to create Source Codes
-\item \textbf{csquotes} - used for enquoting
+\item \textbf{csquotes} - used for enquoting Text
 \item \textbf{imakeidx} - used to create an Index at the end of the Document
 \end{itemize}
 
-\section{Commands}
+\subsection{Commands}
 There are some custom Commands included in this Documentclass:
 \begin{itemize}
 \item \textbf{documentTitle} - sets the Title of the Document shown on the Title Page
@@ -79,33 +85,40 @@ There are some custom Commands included in this Documentclass:
 \item \textbf{titlepagestyle} - sets the Title Page Type
 \item \textbf{printmodetrue} - enables Print Mode
 \item \textbf{printmodefalse} - disables Print Mode
+\item \textbf{qed} - prints a qed Square
 \end{itemize}
 
-\section{Colors}
+\subsection{Colors}
 There are a few Colors included to this Documentclass, some of them are constant, and some of them are changing, depending on your Document Settings. 
 The static Colors are:
 \begin{itemize}
-\item \textbf{medColor} - \#26547C
-\item \textbf{natColor} - \#DF6D07
-\item \textbf{infIngPsyColor} - \#A32638
-\item \textbf{mathColor} - \#56AA1C
-\item \textbf{defaultColor} - \#7D9AAA
-\item \textbf{name} - \#FFFFFF
-\item \textbf{name} - \#7F7F7F
-\item \textbf{name} - \#00B200
-\item \textbf{name} - \#000000
-\item \textbf{name} - \#FF4C00
+\item \textbf{medColor} - {\color{medColor}\#26547C}
+\item \textbf{natColor} - {\color{natColor}\#DF6D07}
+\item \textbf{infIngPsyColor} - {\color{infIngPsyColor}\#A32638}
+\item \textbf{mathColor} -{\color{mathColor}\#56AA1C}
+\item \textbf{defaultColor} - {\color{defaultColor}\#7D9AAA}
+\item \textbf{codeBackgroundColor} - {\color{black}\#FFFFFF}
+\item \textbf{codeCommentColor} - {\color{codeCommentColor}\#7F7F7F}
+\item \textbf{codeKeywordColor} - {\color{codeKeywordColor}\#00B200}
+\item \textbf{codeNumberColor} - {\color{codeNumberColor}\#000000}
+\item \textbf{codeStringColor} - {\color{codeStringColor}\#FF4C00}
 \end{itemize}
-
-The dynamically Changing Colors are
+The dynamically changing Colors are:
 \begin{itemize}
-\item \textbf{facultyColor} - Depending on your selected Faculty and Overrides on this Color (setFacultyColor), Default \#7D9AAA
-\item \textbf{accentColor} - Depending on Overrides on this Color (setAccentColor), Default \#CBC6BA
+\item \textbf{facultyColor} - Depending on your selected Faculty and Overrides on this Color (setFacultyColor), Default {\color{defaultColor}\#7D9AAA}
+\item \textbf{accentColor} - Depending on Overrides on this Color (setAccentColor), Default {\color{black}\#CBC6BA}
 \end{itemize}
 
-\section{Features}
+\subsection{Fonts}
 
-\subsection{Print Mode}
+\newpage
+
+\section{Usage}
+\subsection{File Structure}
+
+\subsection{Document Setup}
+
+\subsection{Adding Contents to the Document}
 
 
 \end{document}
