@@ -31,6 +31,13 @@
 %\printmodetrue
 %\printmodefalse
 
+\lstset
+{
+    language=[LaTeX]TeX,
+    keywordstyle=\color{blue},
+    identifierstyle=\color{magenta},
+}
+
 \begin{document}
 \maketitle
 \tableofcontents
@@ -110,10 +117,12 @@ The dynamically changing Colors are:
 \end{itemize}
 
 \subsection{Fonts}
+The default Font Family was replaced by \textit{sfdefault}.
 
 \newpage
 
 \section{Usage}
+The following Instruction explains how to use the Documentclass and it's Features.
 \subsection{Getting Started}
 At first, you may want to \textbf{create} a \textbf{Project Folder} on your Device, where you keep all Files regarding your Document.
 
@@ -126,8 +135,83 @@ It is suggested to put all of your Images there, too.}
 As the last Step you can \textbf{create} the \textit{.tex} \textbf{File} for your Document.
 
 \subsection{Document Setup}
+Next, let's have a look at the Code you have to write. There is already an example Document available in the \href{https://github.com/JensOstertag/uulm-document}{GitHub Repository}, but this Instruction will describe the used Commands more detailed.
+
+You have to start by defining a Documentclass. This should be, of course, \textit{uulm-document}, that can be selected with
+\begin{lstlisting}
+\documentclass{uulm-document}
+\end{lstlisting}
+You could also add Class Options, e.g. to change the Size of the Page:
+\begin{lstlisting}
+\documentclass[a4paper]{uulm-document}
+\end{lstlisting}
+
+The next Task will be to set up your Document Metadata: Tile, Subtitle, Author Name and the Date. You can use the following Commands to do that:
+\begin{lstlisting}
+\documentTitle{Document Title}
+\documentSubtitle{Document Subtitle}
+\documentAuthor{Author Name}
+\documentDate{Date}
+\end{lstlisting}
+To use the current Date as the Date in the Document, you can type \lstinline!\date! instead of \lstinline!Date!.
+
+Then, you can set up the Document to your own Likings:
+\begin{itemize}
+\item \textbf{Select} your \textbf{Faculty}
+
+Available Faculties are \textit{med} (Medicine), \textit{nat} (Natural Sciences), \textit{infIngPsy} (Information Technology, Engineering, Psychology) and \textit{math} (Mathematics). 
+
+If you don't set your Faculty, or don't set it correctly, the Document will be created with a light Blue Color.
+
+You can set your Faculty by using
+\begin{lstlisting}
+\faculty{med | nat | infIngPsy | math}
+\end{lstlisting}
+(Remove all except relevant).
+
+\item \textbf{Select} the \textbf{Title Page Style}
+
+Available Title Page Styles are \textit{default} and \textit{clear}.
+
+A \textit{default} Title Page Style will start your Document Contents right below the Document Title. Using \textit{clear} Title Page Style will clear the Title Page and your Document Contents will start on the next Page.
+
+You can set a Title Page Style by using
+\begin{lstlisting}
+\titlepagestyle{default | clear}
+\end{lstlisting}
+(Remove all except relevant).
+
+\item \textbf{Select} the \textbf{Print Mode}
+
+Enabling the Print Mode in your Document will remove the colored Headers and print the Page Number in the Center at the Bottom of each Page. This could be used if you want to print your Document to reduce Color Usage.
+
+By Default, Print Mode is turned off.
+
+You can enable the Print Mode by using
+\begin{lstlisting}
+\printmodetrue
+\end{lstlisting}
+\end{itemize}
 
 \subsection{Adding Contents to the Document}
+Now, you can add Contents to your Document inside 
+\begin{lstlisting}
+\begin{document}
+	% Your Contents Here
+\end{document}
+\end{lstlisting}
+You may want to start with creating the Title Page. To do that, use the Command
+\begin{lstlisting}
+\maketitle
+\end{lstlisting}
+There won't be a Page Number on the Title Page.
 
+Next, you can create a Table of Contents with
+\begin{lstlisting}
+\tableofcontents
+\end{lstlisting}
+that will list all your \textit{Section}s, \textit{Subsection}s and \textit{Subsubsection}s together with the corresponding Page Number.
+
+All the other Contents are the same as in normal \LaTeX\;Code.
 
 \end{document}
