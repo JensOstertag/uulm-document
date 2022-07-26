@@ -132,6 +132,7 @@
 %%%%%%%%%%%%
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \usetikzlibrary{calc}
 \usetikzlibrary{positioning}
 \usetikzlibrary{fit}
