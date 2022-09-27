@@ -227,6 +227,11 @@
 %%%%%%%%%%%%%
 %   TITLE   %
 %%%%%%%%%%%%%
+\def\@subtext{}
+\newcommand{\subtext}[1]{
+	\def\@subtext{#1}
+}
+
 \def\@headerSpacing{1.5in}
 \def\@titlePageStyle{default}
 
@@ -252,7 +257,12 @@
 	\thispagestyle{empty}
 	\vspace*{\@headerSpacing}\\
 	\ifthenelse{\equal{\@titlePageStyle}{clear}}{
-		{\clearpage}
+		{
+			\begin{tikzpicture}[remember picture, overlay]
+				\node (subtext) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=1in, above, align=left] at ($(current page.south)$) {\@subtext};
+			\end{tikzpicture}
+			\clearpage
+		}
 		{}
 	}
 }
