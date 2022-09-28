@@ -14,6 +14,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \faculty{infIngPsy}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     Title Subtext                     %
+%   Optional Paragraph on the Bottom of a clear Title   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subtext{Documentation to the \LaTeX -Documentclass \textit{uulm-document}, an inofficial \LaTeX -Template for Documents at Ulm University.}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %             Title Page Style             %
 %   Available Styles: "default", "clear"   %
@@ -84,6 +90,7 @@ There are some custom Commands included in this Documentclass:
 \item \textbf{faculty} - sets the Faculty and the corresponding Faculty Color
 \item \textbf{setFacultyColor} - changes the Faculty Color to any given Color (Hex Format)
 \item \textbf{setAccentColor} - changes the Accent Color to any given Color (Hex Format)
+\item \textbf{subtext} - sets a Text that is printed on a clear Title Page
 \item \textbf{titlepagestyle} - sets the Title Page Type
 \item \textbf{printmodetrue} - enables Print Mode
 \item \textbf{printmodefalse} - disables Print Mode
@@ -163,6 +170,15 @@ You can set your Faculty by using
 \faculty{med | nat | infIngPsy | math}
 \end{lstlisting}
 (Remove all except relevant).
+
+\item \textbf{Set} an  optional \textbf{Title Page Subtext}
+
+The Subtext will be printed on the Bottom of the Title Page, if you choose a \textit{clear} Title Page Style (see next Bullet Point).
+
+You can set an optional Title Page Subtext by using
+\begin{lstlisting}
+\subtext{An optional Subtext}
+\end{lstlisting}
 
 \item \textbf{Select} the \textbf{Title Page Style}
 
