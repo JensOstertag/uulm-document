@@ -214,7 +214,7 @@
 	\else
 		\chead{
 			\begin{tikzpicture}[remember picture, overlay]
-				\node (fullwidth) [rectangle, fill=accentColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.15in, outer sep=0, below, align=right] at (current page.north) {\begin{tabular}{l}\@documentTitle\end{tabular} \hspace*{\fill} \begin{tabular}{r}\@documentSubtitle\end{tabular}};
+				\node (fullwidth) [rectangle, fill=accentColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.15in, outer sep=0, below, align=right] at (current page.north) {\begin{tabular}{@{}l@{}}\@documentTitle\end{tabular} \hspace*{\fill} \begin{tabular}{@{}r@{}}\@documentSubtitle\end{tabular}};
 				\node (pagenumber) [fill=facultyColor, minimum width=.75in, fit={(fullwidth.south) (fullwidth.north)}, inner sep=0, outer sep=0, below left, label={[white]center:\thepage}] at (current page.north east) {};
 			\end{tikzpicture}
 		}
