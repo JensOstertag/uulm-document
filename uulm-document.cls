@@ -210,6 +210,18 @@
 	\clearpairofpagestyles
 	\renewcommand*{\headfont}{\normalfont}
 	\ifprintmode
+		\chead{
+			\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}@{}l@{}r@{}}
+				\begin{tabular}{@{}l@{}}
+					\@documentTitle				
+				\end{tabular}
+				&
+				\begin{tabular}{@{}r@{}}
+					\@documentSubtitle
+				\end{tabular}
+				\\\hline
+			\end{tabular*}
+		}
 		\cfoot{\thepage}
 	\else
 		\chead{
