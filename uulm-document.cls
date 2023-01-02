@@ -261,13 +261,24 @@
 }
 
 \renewcommand{\maketitle}{
-	\begin{tikzpicture}[remember picture, overlay]
-		\node (logo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=right] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[width=7.3cm]{uulmlogo.png}};
-		\node (title) [rectangle, fill=facultyColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.5cm, outer sep=0, align=right, below=0mm of logo] {\textcolor{white}{\LARGE\@documentTitle}};
-		\node (subtitle) [rectangle, fill=accentColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.25cm, outer sep=0, align=right, below=0mm of title] {{\Large\@documentSubtitle}\\\@documentDate\hspace*{\fill}\@documentAuthor};
-	\end{tikzpicture}
-	\thispagestyle{empty}
-	\vspace*{\@headerSpacing}\\
+	\ifprintmode
+		\begin{tikzpicture}[remember picture, overlay]
+			\node (logo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=right] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[width=7.3cm]{uulmlogo.png}};
+			\node (title) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.5cm, outer sep=0, align=right, below=0mm of logo] {\LARGE\@documentTitle};
+			\node (subtitle) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25cm, outer sep=0, align=right, below=0mm of title] {{\Large\@documentSubtitle}\\\@documentDate\hspace*{\fill}\@documentAuthor};
+		\end{tikzpicture}
+		\thispagestyle{empty}
+		\vspace*{\@headerSpacing}\\
+	\else
+		\begin{tikzpicture}[remember picture, overlay]
+			\node (logo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=right] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[width=7.3cm]{uulmlogo.png}};
+			\node (title) [rectangle, fill=facultyColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.5cm, outer sep=0, align=right, below=0mm of logo] {\textcolor{white}{\LARGE\@documentTitle}};
+			\node (subtitle) [rectangle, fill=accentColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.25cm, outer sep=0, align=right, below=0mm of title] {{\Large\@documentSubtitle}\\\@documentDate\hspace*{\fill}\@documentAuthor};
+		\end{tikzpicture}
+		\thispagestyle{empty}
+		\vspace*{\@headerSpacing}\\
+	\fi
+	
 	\ifthenelse{\equal{\@titlePageStyle}{clear}}{
 		{
 			\begin{tikzpicture}[remember picture, overlay]
