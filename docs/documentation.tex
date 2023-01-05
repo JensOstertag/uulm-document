@@ -32,6 +32,11 @@
 %\printmodetrue
 %\printmodefalse
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Document-specific Stuff   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength\parindent{0pt}
+\setlength\parskip{\baselineskip}
 \lstset
 {
     language=[LaTeX]TeX,
@@ -194,7 +199,7 @@ You can set a Title Page Style by using
 
 \item \textbf{Select} the \textbf{Print Mode}
 
-Enabling the Print Mode in your Document will remove the colored Headers and print the Page Number in the Center at the Bottom of each Page. This could be used if you want to print your Document to reduce Color Usage.
+Enabling the Print Mode in your Document will result in a simpler Header and Page Numbers in the Center at the Bottom of each Page. Also, the primary Document Header won't be colored. This could be used if you want to print your Document to reduce Color Usage.
 
 By Default, Print Mode is turned off.
 
@@ -215,7 +220,7 @@ You may want to start with creating the Title Page. To do that, use the Command
 \begin{lstlisting}
 \maketitle
 \end{lstlisting}
-There won't be a Page Number on the Title Page.
+There won't be a Page Number on the Title Page if you don't use Print Mode.
 
 Next, you can create a Table of Contents with
 \begin{lstlisting}
