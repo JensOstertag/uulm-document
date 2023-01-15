@@ -239,6 +239,11 @@
 %%%%%%%%%%%%%
 %   TITLE   %
 %%%%%%%%%%%%%
+\def\@customlogo{}
+\newcommand{\customlogo}[1]{
+	\def\@customlogo{#1}
+}
+
 \def\@subtext{}
 \newcommand{\subtext}[1]{
 	\def\@subtext{#1}
@@ -263,7 +268,12 @@
 \renewcommand{\maketitle}{
 	\ifprintmode
 		\begin{tikzpicture}[remember picture, overlay]
-			\node (logo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=right] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[width=7.3cm]{uulmlogo.png}};
+			\node (logo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=right] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[height=.8in]{uulmlogo.png}};
+			\ifthenelse{\equal{\@customlogo}{}}
+			{}
+			{
+				\node (customlogo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=left] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[height=.8in]{\@customlogo}};
+			}
 			\node (title) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.5cm, outer sep=0, align=right, below=0mm of logo] {\LARGE\@documentTitle};
 			\node (subtitle) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25cm, outer sep=0, align=right, below=0mm of title] {{\Large\@documentSubtitle}\\\@documentDate\hspace*{\fill}\@documentAuthor};
 		\end{tikzpicture}
@@ -271,7 +281,12 @@
 		\vspace*{\@headerSpacing}\\
 	\else
 		\begin{tikzpicture}[remember picture, overlay]
-			\node (logo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=right] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[width=7.3cm]{uulmlogo.png}};
+			\node (logo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=right] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[height=.8in]{uulmlogo.png}};
+			\ifthenelse{\equal{\@customlogo}{}}
+			{}
+			{
+				\node (customlogo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=left] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[height=.8in]{\@customlogo}};
+			}
 			\node (title) [rectangle, fill=facultyColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.5cm, outer sep=0, align=right, below=0mm of logo] {\textcolor{white}{\LARGE\@documentTitle}};
 			\node (subtitle) [rectangle, fill=accentColor, minimum width=\paperwidth, text width=\textwidth, inner sep=.25cm, outer sep=0, align=right, below=0mm of title] {{\Large\@documentSubtitle}\\\@documentDate\hspace*{\fill}\@documentAuthor};
 		\end{tikzpicture}
