@@ -8,23 +8,31 @@
 \documentAuthor{Jens Ostertag}
 \documentDate{\today}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                            Faculty                            %
 %   Available Faculties: "med", "nat", "infIngPsy" and "math"   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \faculty{infIngPsy}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                     Title Subtext                     %
-%   Optional Paragraph on the Bottom of a clear Title   %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subtext{Documentation to the \LaTeX -Documentclass \textit{uulm-document}, an inofficial \LaTeX -Template for Documents at Ulm University.}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %             Title Page Style             %
 %   Available Styles: "default", "clear"   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \titlepagestyle{clear}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                          Custom Logo                          %
+%   Optional custom Logo at the top left Corner of the Header   %
+%              Pass the Image Name as the Argument              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\customlogo{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     Title Subtext                     %
+%   Optional Paragraph on the Bottom of a clear Title   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subtext{Documentation to the \LaTeX -Documentclass \textit{uulm-document}, an inofficial \LaTeX -Template for Documents at Ulm University.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Print Mode (uncomment applicable)   %
@@ -95,8 +103,9 @@ There are some custom Commands included in this Documentclass:
 \item \textbf{faculty} - sets the Faculty and the corresponding Faculty Color
 \item \textbf{setFacultyColor} - changes the Faculty Color to any given Color (Hex Format)
 \item \textbf{setAccentColor} - changes the Accent Color to any given Color (Hex Format)
-\item \textbf{subtext} - sets a Text that is printed on a clear Title Page
 \item \textbf{titlepagestyle} - sets the Title Page Type
+\item \textbf{customlogo} - sets a custom Logo that will be printed in the top left Corner on the Title Page
+\item \textbf{subtext} - sets a Text that is printed on a clear Title Page
 \item \textbf{printmodetrue} - enables Print Mode
 \item \textbf{printmodefalse} - disables Print Mode
 \item \textbf{qed} - prints a qed Square
@@ -176,15 +185,6 @@ You can set your Faculty by using
 \end{lstlisting}
 (Remove all except relevant).
 
-\item \textbf{Set} an  optional \textbf{Title Page Subtext}
-
-The Subtext will be printed on the Bottom of the Title Page, if you choose a \textit{clear} Title Page Style (see next Bullet Point).
-
-You can set an optional Title Page Subtext by using
-\begin{lstlisting}
-\subtext{An optional Subtext}
-\end{lstlisting}
-
 \item \textbf{Select} the \textbf{Title Page Style}
 
 Available Title Page Styles are \textit{default} and \textit{clear}.
@@ -196,6 +196,25 @@ You can set a Title Page Style by using
 \titlepagestyle{default | clear}
 \end{lstlisting}
 (Remove all except relevant).
+
+\item \textbf{Set} a secondary, \textbf{custom Logo}
+
+The custom Logo will be printed on the top left Corner of the Title Page.
+
+You can set a custom Logo by using
+\begin{lstlisting}
+\customlogo{FILE}
+\end{lstlisting}
+The specified File needs to exist in the \textit{img} Directory and be of the File Type \texttt{png}, \texttt{jpg} or \texttt{pdf}.
+
+\item \textbf{Set} an  optional \textbf{Title Page Subtext}
+
+The Subtext will be printed on the Bottom of the Title Page, if you choose a \textit{clear} Title Page Style.
+
+You can set an optional Title Page Subtext by using
+\begin{lstlisting}
+\subtext{An optional Subtext}
+\end{lstlisting}
 
 \item \textbf{Select} the \textbf{Print Mode}
 
