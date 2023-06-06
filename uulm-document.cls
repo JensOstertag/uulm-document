@@ -172,6 +172,8 @@
 	keepspaces=true,
 	numbers=left,
 	numbersep=5pt,
+	xleftmargin=15pt,
+	frame=lines,
 	showspaces=false,
 	showstringspaces=false,
 	showtabs=false,

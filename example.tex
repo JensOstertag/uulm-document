@@ -129,4 +129,18 @@ public class Main {
     } 
 }
 \end{lstlisting}
+\textit{Hinweis:} Falls der Programmcode besonders kurz ist, kann das Listing auch mit dem Attribut \texttt{xleftmargin} ausgestattet werden, um die links angezeigten Zahlen korrekt am linken Seitenrand zu positionieren. Ein Wert von \texttt{10pt} richtet die Zeilen für bis zu 9 Zeilen lange Programmcodes aus:
+\begin{verbatim}
+\begin{lstlisting}[xleftmargin=10pt]
+    % ...
+\end{lstlisting}
+\end{verbatim}
+Analog dazu lassen sich auch die Zeilennummern von besonders langen Programmcodes positionieren.
+
+Der spezifische Wert für \texttt{xleftmargin} kann durch
+\[
+(\text{Anzahl Stellen der größten Zeilennummer} + 1) * \texttt{5pt}
+\]
+berechnet werden.
+
 \end{document}
