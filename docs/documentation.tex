@@ -104,6 +104,7 @@ There are some custom Commands included in this Documentclass:
 \item \textbf{setFacultyColor} - changes the Faculty Color to any given Color (Hex Format)
 \item \textbf{setAccentColor} - changes the Accent Color to any given Color (Hex Format)
 \item \textbf{titlepagestyle} - sets the Title Page Type
+\item \textbf{mainlogo} - overrides the default UUlm-Logo in the top right Corner on the Title Page with a custom Logo
 \item \textbf{customlogo} - sets a custom Logo that will be printed in the top left Corner on the Title Page
 \item \textbf{subtext} - sets a Text that is printed on a clear Title Page
 \item \textbf{printmodetrue} - enables Print Mode
@@ -196,6 +197,16 @@ You can set a Title Page Style by using
 \titlepagestyle{default | clear}
 \end{lstlisting}
 (Remove all except relevant).
+
+\item \textbf{Replace} the \textbf{UUlm-Logo} with a \textbf{custom Logo}
+
+The specified Logo will replace the default UUlm-Logo on the top right Corner of the Title Page.
+
+You can replace it by using
+\begin{lstlisting}
+\mainlogo{FILE}
+\end{lstlisting}
+The specified File needs to exist in the \textit{img} Directory and be of the File Type \texttt{png}, \texttt{jpg} or \texttt{pdf}.
 
 \item \textbf{Set} a secondary, \textbf{custom Logo}
 

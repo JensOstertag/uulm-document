@@ -241,6 +241,11 @@
 %%%%%%%%%%%%%
 %   TITLE   %
 %%%%%%%%%%%%%
+\def\@mainlogo{uulmlogo.png}
+\newcommand{\mainlogo}[1]{
+	\def\@mainlogo{#1}
+}
+
 \def\@customlogo{}
 \newcommand{\customlogo}[1]{
 	\def\@customlogo{#1}
@@ -270,7 +275,7 @@
 \renewcommand{\maketitle}{
 	\ifprintmode
 		\begin{tikzpicture}[remember picture, overlay]
-			\node (logo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=right] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[height=.8in]{uulmlogo.png}};
+			\node (logo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=right] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[height=.8in]{\@mainlogo}};
 			\ifthenelse{\equal{\@customlogo}{}}
 			{}
 			{
@@ -283,7 +288,7 @@
 		\vspace*{\@headerSpacing}\\
 	\else
 		\begin{tikzpicture}[remember picture, overlay]
-			\node (logo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=right] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[height=.8in]{uulmlogo.png}};
+			\node (logo) [rectangle, minimum width=\paperwidth, text width=\textwidth, inner sep=.25in, outer sep=0, below, align=right] at ($(current page.north)+(0, -.5cm)$) {\includegraphics[height=.8in]{\@mainlogo}};
 			\ifthenelse{\equal{\@customlogo}{}}
 			{}
 			{
